@@ -1,178 +1,168 @@
-# Roséve Luxury Beauty - MERN Stack E-Commerce
 
-A full-stack luxury beauty e-commerce platform built with MERN stack (MongoDB, Express, React, Node.js) featuring authentication and Razorpay payment gateway integration.
 
-## 🚀 Features
+---
 
-- **Authentication**: User registration, login, and JWT-based session management
-- **Shopping Cart**: Add, update, and remove products from cart
-- **Payment Gateway**: Razorpay integration for secure payment processing
-- **Order Management**: Create orders and track order history
-- **Product Management**: Browse products by category
-- **Protected Routes**: Secure checkout and user dashboard
-- **Responsive Design**: Beautiful, mobile-friendly UI with Tailwind CSS
+# Roséve Luxury Beauty
 
-## 📋 Prerequisites
+Roséve Luxury Beauty is a comprehensive full-stack e-commerce platform designed for the luxury retail sector. Built using the MERN stack, the application provides a seamless end-to-end shopping experience, featuring secure user authentication, dynamic product management, and a dedicated payment processing integration.
 
-- Node.js (v18 or higher)
-- npm or bun package manager
-- MongoDB (local or MongoDB Atlas)
-- Razorpay account (for payment processing)
+### Tech Stack
 
-## 🛠️ Setup Instructions
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=61DAFB)
+![React](https://img.shields.io/badge/React-%2320232b.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Razorpay](https://img.shields.io/badge/Razorpay-%23022651.svg?style=for-the-badge&logo=razorpay&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
-### Backend Setup
+---
 
-1. **Navigate to server directory:**
-   ```bash
-   cd server
-   ```
+## Core Functionality
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+*   **Authentication System**: Implementation of user registration and login utilizing JSON Web Tokens (JWT) for secure session persistence.
+*   **Cart Management**: Persistent shopping cart functionality allowing users to modify product quantities and manage selections.
+*   **Payment Integration**: Integration with the Razorpay API to facilitate secure financial transactions and signature verification.
+*   **Order Tracking**: Automated order creation upon successful payment and a historical record of all user transactions.
+*   **Product Catalog**: Categorized browsing experience with dynamic filtering.
+*   **Responsive Interface**: Optimized layout for desktop, tablet, and mobile devices using utility-first CSS.
 
-3. **Create `.env` file in `server/` directory:**
-   ```env
-   PORT=5000
-   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
-   JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-   JWT_EXPIRE=7d
-   RAZORPAY_KEY_ID=your_razorpay_key_id_here
-   RAZORPAY_KEY_SECRET=your_razorpay_key_secret_here
-   NODE_ENV=development
-   FRONTEND_URL=http://localhost:5173
-   ```
+---
 
-4. **Seed the database (optional):**
-   ```bash
-   npm run seed
-   ```
+## Prerequisites
 
-5. **Start the backend server:**
-   ```bash
-   npm run dev
-   ```
+*   **Node.js**: Version 18.0.0 or higher.
+*   **Package Manager**: npm or bun.
+*   **Database**: MongoDB instance (Local or Atlas).
+*   **Payment Provider**: Active Razorpay account for API credentials.
 
-The backend will run on `http://localhost:5000`
+---
 
-### Frontend Setup
+## Installation and Configuration
 
-1. **Install dependencies (from root directory):**
-   ```bash
-   npm install
-   ```
+### Backend Configuration
 
-2. **Create `.env` file in root directory:**
-   ```env
-   VITE_API_URL=http://localhost:5000/api
-   VITE_RAZORPAY_KEY_ID=your_razorpay_key_id_here
-   ```
+1.  **Access the server directory**:
+    ```bash
+    cd server
+    ```
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-The frontend will run on `http://localhost:5173`
+3.  **Environment Setup**: Create a `.env` file in the `server/` directory with the following variables:
+    ```env
+    PORT=5000
+    MONGODB_URI=your_mongodb_connection_string
+    JWT_SECRET=your_secure_random_string
+    JWT_EXPIRE=7d
+    RAZORPAY_KEY_ID=your_razorpay_key_id
+    RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+    NODE_ENV=development
+    FRONTEND_URL=http://localhost:5173
+    ```
 
-## 📖 Project Structure
+4.  **Database Seeding (Optional)**:
+    ```bash
+    npm run seed
+    ```
 
-```
-├── server/                 # Backend (Express + MongoDB)
-│   ├── models/            # MongoDB schemas
-│   ├── routes/            # API routes
-│   ├── middleware/        # Auth middleware
-│   ├── utils/             # Helper functions
-│   ├── server.js          # Express server
-│   └── seed.js            # Database seed script
-├── src/                   # Frontend (React + TypeScript)
-│   ├── components/        # Reusable components
-│   ├── contexts/          # React contexts (Auth, Cart)
-│   ├── lib/               # API client
-│   ├── pages/             # Page components
-│   └── App.tsx            # Main app component
-├── public/                # Static files
+5.  **Initialize Server**:
+    ```bash
+    npm run dev
+    ```
+
+### Frontend Configuration
+
+1.  **Install dependencies (Root directory)**:
+    ```bash
+    npm install
+    ```
+
+2.  **Environment Setup**: Create a `.env` file in the root directory:
+    ```env
+    VITE_API_URL=http://localhost:5000/api
+    VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
+    ```
+
+3.  **Initialize Client**:
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## Directory Structure
+
+```text
+├── server/                 # Backend Application
+│   ├── models/            # Data Schemas
+│   ├── routes/            # API Endpoints
+│   ├── middleware/        # Request Interceptors (Auth)
+│   ├── utils/             # Helper Modules
+│   ├── server.js          # Application Entry Point
+│   └── seed.js            # Database Initialization
+├── src/                   # Frontend Application
+│   ├── components/        # UI Components
+│   ├── contexts/          # State Management (Auth, Cart)
+│   ├── lib/               # API Service Layer
+│   ├── pages/             # View Controllers
+│   └── App.tsx            # Root Component
+├── public/                # Assets
 └── README.md
 ```
 
-## 🔐 Authentication
+---
 
-- **Register**: `/register` - Create a new account
-- **Login**: `/login` - Sign in to your account
-- **Protected Routes**: Checkout requires authentication
-
-## 💳 Payment Gateway
-
-This project uses **Razorpay** for secure payment processing:
-
-1. Sign up at https://razorpay.com
-2. Get your Key ID and Key Secret from the dashboard
-3. Add them to your `.env` files in both frontend and backend
-4. The payment flow is handled entirely by Razorpay's secure modal
-
-### Test Razorpay Payments
-
-Use Razorpay's test mode with test cards. Visit Razorpay's documentation for test card details.
-
-## 📚 API Endpoints
+## API Reference
 
 ### Authentication
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user (requires auth)
+| Method | Endpoint | Access |
+| :--- | :--- | :--- |
+| POST | `/api/auth/register` | Public |
+| POST | `/api/auth/login` | Public |
+| GET | `/api/auth/me` | Private |
 
 ### Products
-- `GET /api/products` - Get all products
-- `GET /api/products?category=categoryName` - Get products by category
-- `GET /api/products/:id` - Get single product
+| Method | Endpoint | Access |
+| :--- | :--- | :--- |
+| GET | `/api/products` | Public |
+| GET | `/api/products/:id` | Public |
 
-### Cart
-- `GET /api/cart` - Get user's cart (requires auth)
-- `POST /api/cart` - Add item to cart (requires auth)
-- `PUT /api/cart/:itemId` - Update cart item quantity (requires auth)
-- `DELETE /api/cart/:itemId` - Remove item from cart (requires auth)
-- `DELETE /api/cart` - Clear entire cart (requires auth)
+### Cart Management
+| Method | Endpoint | Access |
+| :--- | :--- | :--- |
+| GET | `/api/cart` | Private |
+| POST | `/api/cart` | Private |
+| PUT | `/api/cart/:itemId` | Private |
+| DELETE | `/api/cart/:itemId` | Private |
 
-### Orders
-- `GET /api/orders` - Get user's orders (requires auth)
-- `GET /api/orders/:id` - Get single order (requires auth)
-- `POST /api/orders` - Create order (requires auth)
+### Payment and Orders
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| POST | `/api/payments/create-order` | Generates Razorpay Order ID |
+| POST | `/api/payments/verify-payment`| Validates Transaction Signature |
+| GET | `/api/orders` | Retrieves user order history |
 
-### Payments
-- `POST /api/payments/create-order` - Create Razorpay order (requires auth)
-- `POST /api/payments/verify-payment` - Verify payment signature (requires auth)
+---
 
-## 🌐 Deployment
+## Deployment Strategy
 
-For production deployment:
+To ensure a secure production environment:
 
-1. Set `NODE_ENV=production`
-2. Use production MongoDB (Atlas recommended)
-3. Replace test Razorpay keys with live keys
-4. Set up proper environment variables on your hosting platform
-5. Configure CORS settings appropriately
-6. Enable HTTPS for secure connections
+1.  **Environment**: Set `NODE_ENV` to `production`.
+2.  **Database**: Migrate from local instances to a managed service like MongoDB Atlas.
+3.  **Security**: Replace Razorpay test keys with live credentials and implement HTTPS.
+4.  **CORS**: Update the `FRONTEND_URL` in the backend configuration to match the production domain.
+5.  **Hosting**: 
+    *   **Frontend**: Recommended providers include Vercel or Netlify.
+    *   **Backend**: Recommended providers include Render, Railway, or AWS.
 
-**Popular Hosting Options:**
-- **Backend**: Heroku, Render, Railway, AWS
-- **Frontend**: Vercel, Netlify, GitHub Pages, AWS
+---
 
-## 🤝 Contributing
+## License
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React 18, TypeScript, Vite, Tailwind CSS, Framer Motion
-- **Backend**: Node.js, Express, MongoDB
-- **Authentication**: JWT (JSON Web Tokens)
-- **Payment**: Razorpay
-- **UI Components**: shadcn/ui
-- **Animation**: Framer Motion
-
+This project is released under the MIT License.
